@@ -16,6 +16,7 @@ const dbConfig: any = {
   entities: [Pessoa, Cliente, TipoUsuario, Endereco],
   synchronize: true,
   logging: false,
+  ssl: { rejectUnauthorized: false },
 };
 
 export const connToDS = async () => {
