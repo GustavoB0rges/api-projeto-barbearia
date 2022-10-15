@@ -12,22 +12,22 @@ export class Endereco {
   @PrimaryGeneratedColumn({ name: "id_endereco" })
   id: number;
 
-  @Column()
+  @Column({ nullable: true})
   cep: string;
 
-  @Column()
+  @Column({ nullable: true})
   rua: string;
 
-  @Column()
+  @Column({ nullable: true})
   estado: string;
 
-  @Column()
+  @Column({ nullable: true})
   cidade: string;
 
-  @Column()
+  @Column({ nullable: true})
   bairro: string;
 
-  @Column()
+  @Column({ nullable: true})
   num: number;
 
   @Column({ nullable: true })

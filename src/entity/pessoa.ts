@@ -16,7 +16,7 @@ export class Pessoa {
   @PrimaryGeneratedColumn({ name: "id_pessoa" })
   id: number;
 
-  @Column()
+  @Column({ nullable: true})
   cpf: string;
 
   @Column()
