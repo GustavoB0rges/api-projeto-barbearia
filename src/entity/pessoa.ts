@@ -22,7 +22,7 @@ export class Pessoa {
   @Column()
   nome: string;
 
-  @Column({ type: "date" })
+  @Column({ type: "date", nullable: true })
   dataNasc: Date;
 
   @Column()
