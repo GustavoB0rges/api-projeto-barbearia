@@ -23,7 +23,7 @@ export class ClienteService {
       });
 
       if (alreadyExists) {
-        throw new Error("Cliente já cadastrado");
+        throw new Error("Email já cadastrado");
       }
 
       cliente.pessoa.senha = await EncryptService.encryptPassword(
