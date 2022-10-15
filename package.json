@@ -4,21 +4,13 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "build": "tsc",
+    "build": "npx tsc",
     "start": "npm run build && node dist/main.js",
     "dev": "nodemon src/server.ts"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/georgejr3211/schedule-barber-api.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/georgejr3211/schedule-barber-api/issues"
-  },
-  "homepage": "https://github.com/georgejr3211/schedule-barber-api#readme",
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.12",
