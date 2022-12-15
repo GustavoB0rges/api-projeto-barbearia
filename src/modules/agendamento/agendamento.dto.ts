@@ -27,7 +27,7 @@ export interface CreateAgendamentoDto {
   histServicos: string,
   valor: number,
   status: string,
-  // servico: Servico,
+  servico: ServicoDto,
   funcionario: FuncionarioDto
 }
 
@@ -40,6 +40,6 @@ export interface UpdateAgendamentoDto {
   histServicos: string,
   valor: number,
   status: string,
-  // servico: ServicoDto,
+  servico: ServicoDto,
   funcionario: FuncionarioDto,
 }

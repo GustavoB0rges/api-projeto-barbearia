@@ -1,5 +1,6 @@
 import { Funcionario } from './funcionario';
-import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Agendamento } from './agendamento';
 
 @Entity({ name: "servicos" })
 export class Servico {
@@ -19,5 +20,8 @@ export class Servico {
   @ManyToOne(() => Servico)
   @JoinColumn({ name: 'id_servico' })
   servico: Servico;
+
+  // @ManyToOne(() => Agendamento, (agendamento) => agendamento.servico)
+  // user: Agendamento
 
 }

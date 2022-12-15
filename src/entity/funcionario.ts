@@ -1,4 +1,5 @@
-import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Agendamento } from './agendamento';
 
 import { Pessoa } from './pessoa';
 
@@ -10,5 +11,10 @@ export class Funcionario {
   @OneToOne(() => Pessoa, (pessoa) => pessoa.funcionario, { cascade: true })
   @JoinColumn({ name: "id_pessoa" })
   pessoa: Pessoa;
+
+
+  // @OneToMany(() => Agendamento, (agendamento) => agendamento.pessoa, { cascade: true })
+  // @JoinColumn({ name: "id_agendamento" })
+  // agendamento: Agendamento[];
 
 }

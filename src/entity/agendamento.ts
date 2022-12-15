@@ -1,5 +1,6 @@
 import { Column, Entity, JoinColumn, ManyToMany, ManyToOne, OneToOne, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { Funcionario } from './funcionario';
+import { Pessoa } from './pessoa';
 import { Servico } from './servico';
 // import { Administrador } from './administrador';
 // import { Servico } from './servico';
@@ -32,11 +33,11 @@ export class Agendamento {
   @Column({ nullable: true })
   histServicos: string;
 
-  // @ManyToOne(() => Funcionario, (funcionario) => funcionario.id, { cascade: true })
-  // @JoinColumn({ name: "id_funcionario" })
-  // funcionario: Funcionario;
+  // @OneToOne(() => Pessoa, (pessoa) => pessoa.funcionario, { cascade: true })
+  // @JoinColumn({ name: "id_pessoa" })
+  // pessoa: Pessoa;
 
-  // @OneToMany(() => Servico, (servico) => servico.id)
+  // @OneToMany(() => Servico, (servico) => servico.servico)
   // servico: Servico[]
 
 }

@@ -20,7 +20,7 @@ const dbConfig: any = {
   entities: [Pessoa, Cliente, Servico, Funcionario, Administrador, TipoUsuario, Endereco, Agendamento],
   synchronize: true,
   logging: false,
-  // ssl: { rejectUnauthorized: false },
+  ssl: { rejectUnauthorized: false },
 };
 
 export const connToDS = async () => {
