@@ -1,21 +1,26 @@
-import { Administrador } from './administrador';
-import { Servico } from './servico';
-import { Funcionario } from './funcionario';
 import { Column, Entity, JoinColumn, ManyToMany, ManyToOne, OneToOne, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
-import { Cliente } from './cliente';
+import { Funcionario } from './funcionario';
+import { Servico } from './servico';
+// import { Administrador } from './administrador';
+// import { Servico } from './servico';
+// import { Funcionario } from './funcionario';
+// import { Cliente } from './cliente';
 
 @Entity({ name: "agendamentos" })
 export class Agendamento {
-  @PrimaryGeneratedColumn({ name: "id_servico" })
+  @PrimaryGeneratedColumn({ name: "id_agendamento" })
   id: number;
 
-  @Column({ type: "date" })
+  @Column({ type: "timestamp" , nullable: true})
   dt_cadastro: Date;
 
-  @Column({ type: "date", nullable: true })
+  @Column()
+  nome_cliente: string;
+
+  @Column({ type: "timestamp", nullable: true})
   dt_ini: Date;
 
-  @Column({ type: "date", nullable: true })
+  @Column({ type: "timestamp", nullable: true})
   dt_fim: Date;
 
   @Column()
@@ -24,23 +29,14 @@ export class Agendamento {
   @Column({ type: 'decimal', nullable: true })
   valor: number;
 
-  @Column()
+  @Column({ nullable: true })
   histServicos: string;
 
-  @ManyToOne(() => Funcionario, (funcionario) => funcionario.id, { cascade: true })
-  @JoinColumn({ name: "id_funcionario" })
-  funcionario: Funcionario;
+  // @ManyToOne(() => Funcionario, (funcionario) => funcionario.id, { cascade: true })
+  // @JoinColumn({ name: "id_funcionario" })
+  // funcionario: Funcionario;
 
-  @ManyToOne(() => Cliente, (cliente) => cliente.id, { cascade: true })
-  @JoinColumn({ name: "id_cliente" })
-  cliente: Cliente;
-
-  @ManyToOne(() => Administrador, (administrador) => administrador.id, { cascade: true })
-  @JoinColumn({ name: "id_administrador" })
-  administrador: Administrador;
-
-  @OneToMany(() => Servico, (servico) => servico.id, { cascade: true })
-  @JoinColumn({ name: "id_servico" })
-  servico: Cliente;
+  // @OneToMany(() => Servico, (servico) => servico.id)
+  // servico: Servico[]
 
 }

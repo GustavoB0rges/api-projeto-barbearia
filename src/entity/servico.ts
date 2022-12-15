@@ -12,12 +12,12 @@ export class Servico {
   @Column({ type: 'decimal', nullable: true })
   valor: number;
 
-
-  // @OneToMany(() => Agendamento, (pessoa) => pessoa.cliente)
-  // pessoa: Agendamento[];
-
   @ManyToOne(() => Funcionario, (funcionario) => funcionario.id, { cascade: true })
   @JoinColumn({ name: "id_funcionario" })
   funcionario: Funcionario;
+
+  @ManyToOne(() => Servico)
+  @JoinColumn({ name: 'id_servico' })
+  servico: Servico;
 
 }

@@ -14,16 +14,19 @@ export class AgendamentoService {
   async create(agendamento: CreateAgendamentoDto) {
     try {
       const newAgendamento = this.repo.create({
-        // dt_cadastro: agendamento.dt_cadastro,
-        // dt_ini: agendamento.dt_ini,
-        // dt_fim: agendamento.dt_fim,
-        // status: agendamento.status,
-        // valor: agendamento.valor,
-        // histServicos: agendamento.histServicos,
-        // funcionario: agendamento.funcionario.id,
-        // cliente: agendamento.cliente.id,
-        // administrador: agendamento.administrador.id,
-        // servico: agendamento.servico.id,
+        nome_cliente: agendamento.nome_cliente,
+        dt_cadastro: agendamento.dt_cadastro,
+        dt_ini: agendamento.dt_ini,
+        dt_fim: agendamento.dt_fim,
+        status: agendamento.status,
+        valor: agendamento.valor,
+        histServicos: agendamento.histServicos,
+        // servico: {
+        //   id: agendamento.servico.id,
+        // },
+        // funcionario: {
+        //   id: agendamento.funcionario.id,
+        // },
       });
 
       return await this.repo.save(newAgendamento);
@@ -38,12 +41,23 @@ export class AgendamentoService {
         where: {
           id: agendamento.id,
         },
-        relations: ["funcionario", "cliente", "administrador", "servico"],
+        // relations: ["funcionario","servico"],
       });
       const newAgendamento = this.repo.create({
-        // id: agendamentoExists.id,
-        // descricao: agendamento.descricao,
-        // valor: agendamento.valor
+        id: agendamentoExists.id,
+        nome_cliente: agendamento.nome_cliente,
+        dt_cadastro: agendamento.dt_cadastro,
+        dt_ini: agendamento.dt_ini,
+        dt_fim: agendamento.dt_fim,
+        status: agendamento.status,
+        valor: agendamento.valor,
+        histServicos: agendamento.histServicos,
+        // servico: {
+        //   id: agendamento.servico.id,
+        // },
+        // funcionario: {
+        //   id: agendamento.funcionario.id,
+        // },
       });
       return await this.repo.save(newAgendamento);
     } catch (error) {
@@ -59,7 +73,7 @@ export class AgendamentoService {
         order: {
           id: "DESC",
         },
-        relations: ["funcionario", "cliente", "administrador", "servico"],
+        // relations: ["funcionario", "servico"],
       });
     } catch (error) {
       throw error;
@@ -72,7 +86,7 @@ export class AgendamentoService {
         where: {
           id: dto.id,
         },
-        relations: ["funcionario", "cliente", "administrador", "servico"],
+        // relations: ["funcionario", "servico"],
       });
     } catch (error) {
       throw error;

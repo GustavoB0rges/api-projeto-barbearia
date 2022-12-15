@@ -102,9 +102,6 @@ export class AdministradorService {
         },
       });
 
-      console.log(newAdministrador);
-      
-
       if (administrador.pessoa.endereco) {
         newAdministrador.pessoa.endereco = {
           id: administradorExists.pessoa.endereco.id,

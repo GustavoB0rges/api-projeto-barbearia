@@ -3,7 +3,6 @@ import jwt from 'jsonwebtoken';
 export default function tokenValidator(req, res, next) {
   try {
     const token = req.header('Authorization');
-    console.log(token);
     
     if (!token) {
       res

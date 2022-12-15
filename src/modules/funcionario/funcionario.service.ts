@@ -102,9 +102,6 @@ export class FuncionarioService {
         },
       });
 
-      console.log(newFuncionario);
-      
-
       if (funcionario.pessoa.endereco) {
         newFuncionario.pessoa.endereco = {
           id: funcionarioExists.pessoa.endereco.id,
