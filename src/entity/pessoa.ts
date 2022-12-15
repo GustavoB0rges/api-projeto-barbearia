@@ -7,8 +7,10 @@ import {
   ManyToOne,
   JoinColumn,
 } from "typeorm";
+import { Administrador } from "./administrador";
 import { Cliente } from "./cliente";
 import { Endereco } from "./endereco";
+import { Funcionario } from "./funcionario";
 import { TipoUsuario } from "./tipo_usuario";
 
 @Entity({ name: "pessoas" })
@@ -39,6 +41,12 @@ export class Pessoa {
 
   @OneToOne(() => Cliente, (cliente) => cliente.pessoa)
   cliente: Cliente;
+
+  @OneToOne(() => Funcionario, (funcionario) => funcionario.pessoa)
+  funcionario: Funcionario;
+
+  @OneToOne(() => Administrador, (administrador) => administrador.pessoa)
+  administrador: Administrador;
 
   @ManyToOne(() => TipoUsuario, (tipoUsuario) => tipoUsuario.pessoa, { cascade: true })
   @JoinColumn({ name: "id_tipo_usuario" })
