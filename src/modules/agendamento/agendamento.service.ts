@@ -21,10 +21,12 @@ export class AgendamentoService {
         status: agendamento.status,
         valor: agendamento.valor,
         histServicos: agendamento.histServicos,
-        // servico: [agendamento.servico],
-        // funcionario: {
-        //   id: agendamento.funcionario.id,
-        // },
+        servico: {
+          id: agendamento.servico.id,
+        },
+        funcionario: {
+          id: agendamento.funcionario.id,
+        },
       });
 
       return await this.repo.save(newAgendamento);
@@ -39,6 +41,7 @@ export class AgendamentoService {
         where: {
           id: agendamento.id,
         },
+        relations: ["funcionario.pessoa","servico"],
       });
       const newAgendamento = this.repo.create({
         id: agendamentoExists.id,
@@ -49,10 +52,12 @@ export class AgendamentoService {
         status: agendamento.status,
         valor: agendamento.valor,
         histServicos: agendamento.histServicos,
-        // servico: [agendamento.servico],
-        // funcionario: {
-        //   id: agendamento.funcionario.id,
-        // },
+        servico: {
+          id: agendamento.servico.id,
+        },
+        funcionario: {
+          id: agendamento.funcionario.id,
+        },
       });
       return await this.repo.save(newAgendamento);
     } catch (error) {
@@ -68,6 +73,7 @@ export class AgendamentoService {
         order: {
           id: "DESC",
         },
+        relations: ["funcionario.pessoa", "servico"],
       });
     } catch (error) {
       throw error;
@@ -80,6 +86,7 @@ export class AgendamentoService {
         where: {
           id: dto.id,
         },
+        relations: ["funcionario.pessoa", "servico"],
       });
     } catch (error) {
       throw error;

@@ -12,9 +12,7 @@ export class Funcionario {
   @JoinColumn({ name: "id_pessoa" })
   pessoa: Pessoa;
 
-
-  // @OneToMany(() => Agendamento, (agendamento) => agendamento.pessoa, { cascade: true })
-  // @JoinColumn({ name: "id_agendamento" })
-  // agendamento: Agendamento[];
+  @OneToMany(() => Agendamento, (agendamento) => agendamento.funcionario)
+  agendamento: Agendamento;
 
 }

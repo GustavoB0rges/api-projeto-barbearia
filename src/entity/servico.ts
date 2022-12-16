@@ -21,7 +21,7 @@ export class Servico {
   @JoinColumn({ name: 'id_servico' })
   servico: Servico;
 
-  // @ManyToOne(() => Agendamento, (agendamento) => agendamento.servico)
-  // user: Agendamento
+  @OneToOne(() => Agendamento, (agendamento) => agendamento.servico)
+  agendamento: Agendamento;
 
 }

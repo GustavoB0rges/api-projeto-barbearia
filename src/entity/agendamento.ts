@@ -33,11 +33,12 @@ export class Agendamento {
   @Column({ nullable: true })
   histServicos: string;
 
-  // @OneToOne(() => Pessoa, (pessoa) => pessoa.funcionario, { cascade: true })
-  // @JoinColumn({ name: "id_pessoa" })
-  // pessoa: Pessoa;
+  @ManyToOne(() => Funcionario, (fucionario) => fucionario.agendamento, { cascade: true, eager: true })
+  @JoinColumn({ name: "id_funcionario" })
+  funcionario: Funcionario;
 
-  // @OneToMany(() => Servico, (servico) => servico.servico)
-  // servico: Servico[]
+  @ManyToOne(() => Servico, (servico) => servico.agendamento, { cascade: true, eager: true })
+  @JoinColumn({ name: "id_servico" })
+  servico: Servico;
 
 }
