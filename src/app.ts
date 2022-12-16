@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use('/login', pessoaRouter);
-app.use("/clientes", tokenValidator, clienteRouter);
+app.use("/clientes", clienteRouter);
 app.use("/funcionarios", tokenValidator, funcionarioRouter);
 app.use("/agendamentos", tokenValidator, agendamentoRouter);
 app.use("/administradores", tokenValidator, administradorRouter);
